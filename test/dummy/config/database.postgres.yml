@@ -2,8 +2,8 @@ test: &test
   adapter: postgresql
   database: paper_trail_test
   username: postgres
-  password: 
-  host:     localhost
+  password:
+  host:     127.0.0.1
   port:     5432
 
 foo:
