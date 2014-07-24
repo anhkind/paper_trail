@@ -4,8 +4,8 @@ services:
 env:
   - DB=mysql
 script:
-  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -u root -e 'create database paper_trail_test;'; fi"
-  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -u root -e 'create database paper_trail_bar; '; fi"
-  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -u root -e 'create database paper_trail_foo; '; fi"
+  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_test;'; fi"
+  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_bar; '; fi"
+  - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_foo; '; fi"
   - bundle
   - bundle exec rake DB=mysql
