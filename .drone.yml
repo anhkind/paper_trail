@@ -8,7 +8,6 @@ script:
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_test;'; fi"
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_bar; '; fi"
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_foo; '; fi"
-  - mkdir -p /tmp/bundler
-  - sudo chown -R $USER /tmp/bundler
+  - mkdir -p /tmp/bundler && sudo chown -R $UID /tmp/bundler
   - bundle install --quiet --path /tmp/bundler
   - bundle exec rake
