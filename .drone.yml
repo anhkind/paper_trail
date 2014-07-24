@@ -1,10 +1,14 @@
 image: ruby2.0.0
 services:
   - mysql
+cache:
+  - /tmp/bundler
 script:
   - DB=mysql
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_test;'; fi"
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_bar; '; fi"
   - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -h 127.0.0.1 -u root -e 'create database paper_trail_foo; '; fi"
-  - bundle
+  - mkdir -p /tmp/bundler
+  - sudo chown -R ubuntu:ubuntu /tmp/bundler
+  - bundle install --quiet --path /tmp/bundler
   - bundle exec rake
