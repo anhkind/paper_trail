@@ -1,0 +1,9 @@
+image: ruby2.0.0
+services:
+  - mysql
+  - postgres
+script:
+  - bundle
+  - bundle exec rake DB=sqlite
+  - bundle exec rake DB=postgres
+  - bundle exec rake DB=mysql
