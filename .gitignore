@@ -14,4 +14,4 @@ pkg/*
 Gemfile.lock
 vendor/*
 .idea
-.rvmrc
+.rvmrc 
